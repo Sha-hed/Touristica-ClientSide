@@ -1,12 +1,35 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Route/AuthProvider";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const links = <>
-    <li><NavLink to = '/'>Home</NavLink></li>
-    <li><NavLink to = '/allSpots'>All Tourists Spot</NavLink></li>
-    <li><NavLink to = '/addSpots'>Add Tourists Spot</NavLink></li>
-    <li><NavLink to = '/myList'>MyList</NavLink></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/allSpots'>All Tourists Spot</NavLink></li>
+        <li><NavLink to='/addSpots'>Add Tourists Spot</NavLink></li>
+        <li><NavLink to='/myList'>MyList</NavLink></li>
     </>
+    const logout = () => {
+        logOut()
+            .then(() => {
+                navigate('/');
+                toast.success('Log Out Successfully!', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+            .catch(error => console.error(error))
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -26,9 +49,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               <Link to='/login' className="mr-3">Login</Link>
-               <Link to='/register'>Register</Link>
+                {user ?
+                    <>
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mr-3" title={user.displayName}>
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </div>
+                        <a onClick={logout} className="btn btn-active btn-accent">Sign Out</a>
+                    </> :
+                    <div className="mr-5">
+                     <Link to='/login'> <button className="btn btn-active btn-accent">Login</button></Link>
+                    <Link to='/register'> <button className="btn btn-active btn-accent">Register</button></Link>
+                    </div>
+                }
             </div>
+            <ToastContainer />
         </div>
     );
 };

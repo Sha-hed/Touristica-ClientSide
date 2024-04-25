@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Route/AuthProvider";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -9,13 +9,14 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
     const { register, getValues, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
     const { logIn, Google, Github } = useContext(AuthContext);
     const onSubmit = () => {
         const email = getValues('Email');
         const password = getValues('Password');
         console.log(email, password);
         logIn(email, password)
-        .then(result => {
+        .then(()=> {
                 toast.success('Logged in Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -25,13 +26,15 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                console.log(result.user)
+                setTimeout(()=>{
+                    navigate('/');
+                  },2100)
             })
             .catch(error => setError(error.message))
     }
     const Googles = () => {
         Google()
-            .then(result => {
+            .then(() => {
                 toast.success('Logged in Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -41,13 +44,15 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                console.log(result.user)
+                setTimeout(()=>{
+                    navigate('/');
+                  },2100)
             })
             .catch(error => setError(error.message))
     }
     const Githubs = () => {
         Github()
-            .then(result => {
+            .then(() => {
                 toast.success('Logged in Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -57,7 +62,9 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                console.log(result.user)
+                setTimeout(()=>{
+                    navigate('/');
+                  },2100)
             })
             .catch(error => setError(error.message));
     }
