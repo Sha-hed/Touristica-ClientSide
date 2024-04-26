@@ -1,0 +1,20 @@
+.first{
+    background-image:   linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('../assets/images/Rangamati.jpeg');
+    width: 100%;
+    background-size: cover;
+}
+.second{
+    background-image:   linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('../assets/images/Angkor_Wat_Temple.jpg');
+    width: 100%;
+    background-size: cover;
+}
+.third{
+    background-image:   linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('../assets/images/Bali.jpg');
+    width: 100%;
+    background-size: cover;
+}
+.fourth{
+    background-image:   linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('../assets/images/penang-malaysia.jpg');
+    width: 100%;
+    background-size: cover;
+}
