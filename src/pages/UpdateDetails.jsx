@@ -1,10 +1,44 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateDetails = () => {
     const spot = useLoaderData();
-    const handleUpdate = () => {
-
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const spot_name = form.spot_name.value;
+        const country_name = form.country_name.value;
+        const location = form.location.value;
+        const season = form.season.value;
+        const average_cost = form.average_cost.value;
+        const travel_time = form.travel_time.value;
+        const visitor = form.visitor.value;
+        const photo = form.photo.value;
+        const description = form.description.value;
+        form.reset();
+        const SpotDetails = {
+            spot_name, country_name, location, season
+            , average_cost, travel_time, visitor, photo, description
+        };
+        console.log(SpotDetails);
+        fetch(`http://localhost:5000/spots/${spot._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(SpotDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.modifiedCount>0){
+                    Swal.fire({
+                        title: "tourist spot updated successfully!",
+                        icon: "success"
+                      });   
+                }
+            })
     }
+
     return (
         <div className="border-2 w-1/2 mx-auto p-2 my-10">
             <h1 className="text-center font-bold text-xl">Update Tourists Spot</h1>

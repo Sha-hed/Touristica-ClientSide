@@ -1,11 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Route/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const MyList = () => {
     const { user } = useContext(AuthContext);
     const [myList, setMyList] = useState([]);
+    const handleDelete = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/spots/${id}`, {
+                    method: "DELETE"
+                })
+                .then(res => res.json())
+                .then(() => {
+                    const newList = myList?.filter(spot => spot._id !== id);
+                    setMyList(newList);
+                })
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+    }
     useEffect(() => {
         fetch(`https://assignment-10-server-side-lake.vercel.app/mySpots/${user?.email}`)
             .then(res => res.json())
@@ -36,7 +64,7 @@ const MyList = () => {
                                 <th>{mine.visitor}</th>
                                 <th className="flex space-x-3">
                                     <Link to={`/update/${mine._id}`} className="btn btn-success">Update</Link>
-                                    <Link className="btn btn-error">Delete</Link>
+                                    <Link onClick={() => handleDelete(mine._id)} className="btn btn-error">Delete</Link>
                                 </th>
                             </tr>)
                         }
