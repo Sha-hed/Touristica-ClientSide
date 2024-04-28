@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import ImageGrid from "./ImageGrid";
 import CountryToSpotCard from "./CountryToSpotCard";
 
 const CountryToSpot = () => {
 
     const country = useLoaderData();
     const [spot, setSpot] = useState([]);
-    // /getByCountryName
-    // const countryName = 'Bangladesh'
-    // useEffect(() => {
-    //     fetch(`https://assignment-10-server-side-lake.vercel.app/getByCountryName/${countryName}`)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data));
-    // }, [])
     useEffect(() => {
         fetch(`http://localhost:5000/getByCountryName/${country.name}`)
             .then(res => res.json())
