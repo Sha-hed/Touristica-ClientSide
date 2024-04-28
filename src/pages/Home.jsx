@@ -16,8 +16,7 @@ const Home = () => {
     const [country, setCountry] = useState([]);
 
     useEffect(() => {
-        // https://assignment-10-server-side-c8uzqhnnh-shaheds-projects-5325f578.vercel.app
-        fetch('http://localhost:5000/country')
+        fetch('https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/country')
             .then(res => res.json())
             .then(data => setCountry(data))
     }, [])
@@ -26,7 +25,7 @@ const Home = () => {
         <>
             {/* Slider Section  */}
             <div>
-                {/* Banner Banao hala Joldi */}
+               
                 <Swiper
                     // install Swiper modules
                     modules={[Navigation, Pagination, Scrollbar, A11y]}

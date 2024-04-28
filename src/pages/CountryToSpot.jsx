@@ -7,7 +7,7 @@ const CountryToSpot = () => {
     const country = useLoaderData();
     const [spot, setSpot] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/getByCountryName/${country.name}`)
+        fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/getByCountryName/${country.name}`)
             .then(res => res.json())
             .then(data => setSpot(data));
     }, [])

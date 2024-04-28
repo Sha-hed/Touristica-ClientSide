@@ -11,7 +11,7 @@ const InsertCountries = () => {
         const photo = e.target.country_photo.value;
         const description = e.target.country_description.value;
         const user = { name, photo, description }
-        fetch('http://localhost:5000/insertCountry', {
+        fetch(' https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/insertCountry', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

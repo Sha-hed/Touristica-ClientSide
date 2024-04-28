@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myList',
-                element:<MyList></MyList>
+                element: <MyList></MyList>
             },
             {
                 path: '/login',
@@ -48,17 +48,17 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
+                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element:<UpdateDetails></UpdateDetails> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/spots/${params.id}`)
+                element: <UpdateDetails></UpdateDetails>,
+                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${params.id}`)
             },
             {
                 path: '/countryToSpot/:id',
                 element: <CountryToSpot></CountryToSpot>,
-                loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/country/${params.id}`)
             }
         ]
     }
