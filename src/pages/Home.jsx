@@ -12,10 +12,7 @@ import CountryCard from "./CountryCard";
 
 const Home = () => {
     const spots = useLoaderData();
-    console.log(spots);
-
     const { user } = useContext(AuthContext);
-    console.log(user);
     const [country, setCountry] = useState([]);
 
     useEffect(() => {

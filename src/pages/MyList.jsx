@@ -35,7 +35,7 @@ const MyList = () => {
         });
     }
     useEffect(() => {
-        fetch(`https://assignment-10-server-side-lake.vercel.app/mySpots/${user?.email}`)
+        fetch(`http://localhost:5000/mySpots/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyList(data))
     }, [])
@@ -47,6 +47,7 @@ const MyList = () => {
                     <thead>
                         <tr className="font-bold text-lg text-black bg-gray-300 rounded-lg">
                             <th className="border-2"></th>
+                            <th className="border-2">Image</th>
                             <th className="border-2">Name</th>
                             <th className="border-2">Country</th>
                             <th className="border-2">Average Cost</th>
@@ -58,6 +59,13 @@ const MyList = () => {
                         {
                             myList?.map((mine, id) => <tr key={mine._id}>
                                 <th>{id + 1}</th>
+                                <th>
+                                    <div className="avatar">
+                                        <div className="w-20 h-16 rounded-xl">
+                                            <img src={mine.photo} />
+                                        </div>
+                                    </div>
+                                </th>
                                 <th>{mine.spot_name}</th>
                                 <th>{mine.country_name}</th>
                                 <th>{mine.average_cost}</th>

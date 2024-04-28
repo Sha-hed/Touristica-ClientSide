@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CountryCard = ({country}) => {
     return (
-        <Link to={`/countryToSpot/${country._id}`} className="w-96 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+        <Link state={country.name} to={`/countryToSpot/${country._id}`} className="sm:w-96 md:w-80 lg:w-96 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
             <img src={country.photo} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
             <div className="flex flex-col justify-between p-1 space-y-8">
                 <div className="space-y-2">
