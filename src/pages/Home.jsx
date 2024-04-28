@@ -19,6 +19,7 @@ const Home = () => {
     const [country, setCountry] = useState([]);
 
     useEffect(() => {
+        // https://assignment-10-server-side-c8uzqhnnh-shaheds-projects-5325f578.vercel.app
         fetch('http://localhost:5000/country')
             .then(res => res.json())
             .then(data => setCountry(data))
@@ -26,6 +27,7 @@ const Home = () => {
 
     return (
         <>
+            {/* Slider Section  */}
             <div>
                 {/* Banner Banao hala Joldi */}
                 <Swiper
@@ -85,6 +87,7 @@ const Home = () => {
 
 
             </div >
+            {/* Tourist Spot Section  */}
             <div className="container max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12">
                 <div className="mt-5 space-y-3">
                     <h1 className="text-center font-bold text-4xl">Popular Tourists Spots</h1>
@@ -96,6 +99,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            {/* Country Card Section  */}
             <div className="container max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12 mt-10">
                 <h1 className="text-center text-5xl font-bold">Countries</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -105,19 +109,47 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Best Places to Visit */}
+            <div>
+                <section className="dark:bg-gray-100 dark:text-gray-800">
+                    <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
+                        <h1 className="text-center font-semibold text-5xl">Best Places To Visit</h1>
+                        <div rel="noopener noreferrer" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
+                            <img src="https://i.ibb.co/WKrFBsq/Bali.jpg" alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
+                            <div className="p-6 space-y-2 lg:col-span-5">
+                                <h3 className="text-2xl font-semibold underline">Bali, Indonesia</h3>
 
+                                <p> Bali boasts picturesque beaches with crystal-clear waters, perfect for swimming, surfing, and snorkeling. Some of the most famous beaches include Kuta, Seminyak, and Jimbaran. Inland, you'll find terraced rice paddies, dense jungles, and majestic volcanic peaks, including Mount Agung, the island's highest point.Balinese culture is deeply rooted in Hindu traditions, evident in its numerous temples, rituals, and ceremonies. The island is adorned with thousands of temples, each a testament to Bali's spiritual richness. Visitors can witness traditional dances like the Barong and Kecak, explore local markets, and participate in cultural festivals.</p>
+                            </div>
+                        </div>
+                        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            <div rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
+                                <img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://i.ibb.co/n0ygM3f/Eifle-tower.jpg" />
+                                <div className="p-3 space-y-2">
+                                    <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">Eiffel Tower, France</h3>
+                                    <p>The Eiffel Tower is one of the most visited tourist attractions globally, drawing millions of visitors from around the world each year. Tourists can ascend the tower via elevators or stairs to enjoy stunning vistas of Paris, including famous landmarks such as the Arc de Triomphe, Notre-Dame Cathedral, and the Louvre Museum.</p>
+                                </div>
+                            </div>
+                            <div rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
+                                <img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://i.ibb.co/jZ73Gnf/sundarbans.jpg" />
+                                <div className="p-3 space-y-2">
+                                    <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">Sundarban, Bangladesh</h3>
+                                    <p> The Sundarbans is a biodiversity hotspot, supporting a remarkable array of flora and fauna. It is home to numerous species, including the Bengal tiger, which has adapted to the unique mangrove environment. Other wildlife found here includes saltwater crocodiles, spotted deer, wild boars, and various bird species such as herons, egrets, and kingfishers.</p>
+                                </div>
+                            </div>
+                            <div rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
+                                <img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://i.ibb.co/0fYPNx3/Nayagra.jpg" />
+                                <div className="p-3 space-y-2">
+                                    <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">Niagara Falls, United States and Canada</h3>
+                                    <p>Niagara Falls consists of three majestic waterfalls: the American Falls, the Bridal Veil Falls, and the Horseshoe Falls (also known as the Canadian Falls). The sight of millions of gallons of water cascading over the cliffs each minute is truly awe-inspiring, making it a must-see destination for travelers worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
+            {/* Contact Us Section */}
             <div>
                 <section className="mt-10 py-10 dark:bg-gray-100 dark:text-gray-900">
                     <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">

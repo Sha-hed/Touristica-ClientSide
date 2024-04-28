@@ -21,11 +21,11 @@ const MyList = () => {
                 fetch(`http://localhost:5000/spots/${id}`, {
                     method: "DELETE"
                 })
-                .then(res => res.json())
-                .then(() => {
-                    const newList = myList?.filter(spot => spot._id !== id);
-                    setMyList(newList);
-                })
+                    .then(res => res.json())
+                    .then(() => {
+                        const newList = myList?.filter(spot => spot._id !== id);
+                        setMyList(newList);
+                    })
                 Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",

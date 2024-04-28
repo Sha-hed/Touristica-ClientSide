@@ -8,9 +8,9 @@ const InsertCountries = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.country_name.value;
-        const photo= e.target.country_photo.value;
+        const photo = e.target.country_photo.value;
         const description = e.target.country_description.value;
-        const user = {name, photo, description}
+        const user = { name, photo, description }
         fetch('http://localhost:5000/insertCountry', {
             method: 'POST',
             headers: {
@@ -20,7 +20,7 @@ const InsertCountries = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-     }
+    }
 
     return (
         <div className="min-h-screen flex justify-center items-center">

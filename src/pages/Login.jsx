@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Route/AuthProvider";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 
 const Login = () => {
+    const location = useLocation();
+    const path = location.state || '/'
     const { register, getValues, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -16,7 +18,7 @@ const Login = () => {
         const password = getValues('Password');
         console.log(email, password);
         logIn(email, password)
-        .then(()=> {
+            .then(() => {
                 toast.success('Logged in Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -26,9 +28,9 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(()=>{
-                    navigate('/');
-                  },2100)
+                setTimeout(() => {
+                    navigate(path);
+                }, 2100)
             })
             .catch(error => setError(error.message))
     }
@@ -44,9 +46,9 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(()=>{
-                    navigate('/');
-                  },2100)
+                setTimeout(() => {
+                    navigate(path);
+                }, 2100)
             })
             .catch(error => setError(error.message))
     }
@@ -62,9 +64,9 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(()=>{
-                    navigate('/');
-                  },2100)
+                setTimeout(() => {
+                    navigate(path);
+                }, 2100)
             })
             .catch(error => setError(error.message));
     }

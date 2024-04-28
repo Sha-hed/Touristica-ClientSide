@@ -11,13 +11,16 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allSpots'>All Tourists Spot</NavLink></li>
-        <li><NavLink to='/addSpots'>Add Tourists Spot</NavLink></li>
-        <li><NavLink to='/myList'>MyList</NavLink></li>
+        {
+            user && <>
+                <li><NavLink to='/addSpots'>Add Tourists Spot</NavLink></li>
+                <li><NavLink to='/myList'>MyList</NavLink></li>
+            </>
+        }
     </>
     const logout = () => {
         logOut()
             .then(() => {
-                navigate('/');
                 toast.success('Log Out Successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -27,6 +30,9 @@ const Navbar = () => {
                     draggable: true,
                     progress: undefined,
                 });
+                setTimeout(()=>{
+                    navigate('/')
+                },2300)
             })
             .catch(error => console.error(error))
     }

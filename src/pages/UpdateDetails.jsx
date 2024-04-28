@@ -30,11 +30,11 @@ const UpdateDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.modifiedCount>0){
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "tourist spot updated successfully!",
                         icon: "success"
-                      });   
+                    });
                 }
             })
     }
