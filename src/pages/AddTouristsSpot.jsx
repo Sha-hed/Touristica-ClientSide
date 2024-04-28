@@ -1,5 +1,7 @@
+import Swal from "sweetalert2";
+
 const AddTouristsSpot = () => {
-    const handleUpdate = e=>{
+    const handleAdd = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.user_name.value;
@@ -14,16 +16,35 @@ const AddTouristsSpot = () => {
         const photo = form.photo.value;
         const description = form.description.value;
         form.reset();
-        const SpotDetails = {name, email, spot_name, country_name, location,season
-        , average_cost, travel_time, visitor, photo, description};
+        const SpotDetails = {
+            name, email, spot_name, country_name, location, season
+            , average_cost, travel_time, visitor, photo, description
+        };
         console.log(SpotDetails);
+        fetch('https://assignment-10-server-side-lake.vercel.app/spots', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(SpotDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Tourist Spot Added Successfully!",
+                        icon: "success"
+                    });
+                }
+            })
     }
     return (
         <div>
             <div>
                 <div className="border-2 w-1/2 mx-auto p-2 my-10">
                     <h1 className="text-center font-bold text-xl">Add Tourists Spot</h1>
-                    <form onSubmit={handleUpdate}>
+                    <form onSubmit={handleAdd}>
                         <div className="flex flex-col space-y-2 my-10">
                             <div className="flex gap-2 w-full ">
                                 <div className="w-1/2  ">
@@ -32,13 +53,13 @@ const AddTouristsSpot = () => {
                                 </div>
                                 <div className="w-1/2">
                                     <label className="font-medium pl-1">User Email</label> <br />
-                                    <input  className="w-full p-2 my-2" placeholder="Enter User Email" type="email" name="user_email" id="" />
+                                    <input className="w-full p-2 my-2" placeholder="Enter User Email" type="email" name="user_email" id="" />
                                 </div>
                             </div>
                             <div className="flex gap-2 w-full ">
                                 <div className="w-1/2  ">
                                     <label className="font-medium pl-1">Tourists Spot Name</label> <br />
-                                    <input  className="w-full p-2 my-2" placeholder="Enter Tourists Spot Name" type="text" name="spot_name" id="" />
+                                    <input className="w-full p-2 my-2" placeholder="Enter Tourists Spot Name" type="text" name="spot_name" id="" />
                                 </div>
                                 <div className="w-1/2">
                                     <label className="font-medium pl-1">Country Name</label> <br />
@@ -52,11 +73,11 @@ const AddTouristsSpot = () => {
                                 </div>
                                 <div className="w-1/2">
                                     <label className="font-medium pl-1">Seasonality</label> <br />
-                                    <input  className="w-full p-2 my-2" placeholder="Enter Season" type="text" name="season" id="" />
+                                    <input className="w-full p-2 my-2" placeholder="Enter Season" type="text" name="season" id="" />
                                 </div>
                             </div>
                             <div className="flex gap-2 w-full ">
-                            <div className="w-1/2">
+                                <div className="w-1/2">
                                     <label className="font-medium pl-1">Average Cost</label> <br />
                                     <input className="w-full p-2 my-2" placeholder="Enter Average Cost" type="number" name="average_cost" id="" />
                                 </div>
@@ -66,7 +87,7 @@ const AddTouristsSpot = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2 w-full ">
-                            <div className="w-1/2">
+                                <div className="w-1/2">
                                     <label className="font-medium pl-1">Total Visitors Per Year</label> <br />
                                     <input className="w-full p-2 my-2" placeholder="Enter Total Visitors Per Year" type="number" name="visitor" id="" />
                                 </div>
@@ -76,7 +97,7 @@ const AddTouristsSpot = () => {
                                 </div>
                             </div>
                             <div className="flex gap-2 w-full ">
-                            <div className="w-full">
+                                <div className="w-full">
                                     <label className="font-medium pl-1">Short description</label> <br />
                                     <input className="w-full h-[100px] p-2 my-2" placeholder="Write something" type="text" name="description" id="" />
                                 </div>
