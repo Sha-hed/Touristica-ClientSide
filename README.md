@@ -1,8 +1,18 @@
-# React + Vite
+1. Website Name : Touristica
+2. Website Live URL : https://assignment-10-474ad.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website Characteristics and Features:
 
-Currently, two official plugins are available:
+1. The website features a Navbar at the top, providing navigation to different pages.
+   Within the Navbar, users can find login and register buttons to access the website's features.
+2. A theme controller button in the Navbar allows users to switch between light and dark themes.
+3. The home page includes a slider and links to tourist spots, country information, a blog,    and a contact page.
+4. Private routes ensure that only logged-in users can access certain information.
+5. A dedicated page allows logged-in users to add their favorite tourist spots.
+6. Users can view their added spots on a "My List" page.
+7. Facilities for deleting or updating added spots are available.
+8. An "All Tourist Spots" page allows anyone to browse all the spots added by users.
+9. A footer is present at the bottom of all pages, and an error page is displayed for incorrect paths.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Selected Category :  Southeast Asia
+
