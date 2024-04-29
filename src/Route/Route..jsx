@@ -10,6 +10,7 @@ import Register from "../pages/Register";
 import ViewDetails from "../pages/ViewDetails";
 import UpdateDetails from "../pages/UpdateDetails";
 import CountryToSpot from "../pages/CountryToSpot";
+import InsertCountries from "../pages/InsertCountries";
 import PrivateRoute from "./PrivateRoute";
 
 
@@ -22,12 +23,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('https://assignment-10-server-side-lake.vercel.app/spots')
+                loader: () => fetch(' https://assignment-10-server-side-lake.vercel.app/spots')
             },
             {
                 path: '/allSpots',
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch('https://assignment-10-server-side-lake.vercel.app/spots')
+                loader: () => fetch(' https://assignment-10-server-side-lake.vercel.app/spots')
             },
             {
                 path: '/addSpots',
@@ -48,17 +49,21 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-side-lake.vercel.app/spots/${params.id}`)
             },
             {
                 path: '/update/:id',
                 element: <UpdateDetails></UpdateDetails>,
-                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${params.id}`)
+                loader: ({ params }) => fetch(` https://assignment-10-server-side-lake.vercel.app/spots/${params.id}`)
             },
             {
                 path: '/countryToSpot/:id',
                 element: <CountryToSpot></CountryToSpot>,
-                loader: ({ params }) => fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/country/${params.id}`)
+                loader: ({ params }) => fetch(` https://assignment-10-server-side-lake.vercel.app/country/${params.id}`)
+            },
+            {
+                path :'/insertThem',
+                element: <InsertCountries></InsertCountries>
             }
         ]
     }

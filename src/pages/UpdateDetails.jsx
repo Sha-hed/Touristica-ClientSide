@@ -21,7 +21,7 @@ const UpdateDetails = () => {
             , average_cost, travel_time, visitor, photo, description
         };
         console.log(SpotDetails);
-        fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${spot._id}`, {
+        fetch(`  https://assignment-10-server-side-lake.vercel.app/spots/${spot._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

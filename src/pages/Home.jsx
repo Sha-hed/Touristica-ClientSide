@@ -16,7 +16,7 @@ const Home = () => {
     const [country, setCountry] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/country')
+        fetch(' https://assignment-10-server-side-lake.vercel.app/country')
             .then(res => res.json())
             .then(data => setCountry(data))
     }, [])
@@ -25,7 +25,7 @@ const Home = () => {
         <>
             {/* Slider Section  */}
             <div>
-               
+
                 <Swiper
                     // install Swiper modules
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -34,7 +34,7 @@ const Home = () => {
                     navigation
                     pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    onSwiper={() => true}
                     onSlideChange={() => console.log('slide change')}
                 >
                     <SwiperSlide className="w-full min-h-[calc(100vh-136px)] first">

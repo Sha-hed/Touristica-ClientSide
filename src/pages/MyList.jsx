@@ -18,7 +18,7 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/spots/${id}`, {
+                fetch(` https://assignment-10-server-side-lake.vercel.app/spots/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -35,7 +35,7 @@ const MyList = () => {
         });
     }
     useEffect(() => {
-        fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/mySpots/${user?.email}`)
+        fetch(` https://assignment-10-server-side-lake.vercel.app/mySpots/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyList(data))
     }, [])

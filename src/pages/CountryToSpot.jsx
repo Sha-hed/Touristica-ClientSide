@@ -7,11 +7,10 @@ const CountryToSpot = () => {
     const country = useLoaderData();
     const [spot, setSpot] = useState([]);
     useEffect(() => {
-        fetch(` https://assignment-10-server-side-dyd4q8yv5-shaheds-projects-5325f578.vercel.app/getByCountryName/${country.name}`)
+        fetch(`  https://assignment-10-server-side-lake.vercel.app/getByCountryName/${country.name}`)
             .then(res => res.json())
             .then(data => setSpot(data));
     }, [])
-    console.log(country);
     return (
         <div >
             <div className=" container max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12 mt-10">
