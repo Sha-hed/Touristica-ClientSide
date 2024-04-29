@@ -1,4 +1,5 @@
 import { IoMdEye } from "react-icons/io";
+import { Tooltip } from 'react-tooltip';
 import { IoMdEyeOff } from "react-icons/io";
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';

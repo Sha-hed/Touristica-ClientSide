@@ -97,7 +97,10 @@ const Home = () => {
             </div>
             {/* Country Card Section  */}
             <div className="container max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12 mt-10">
-                <h1 className="text-center text-5xl font-bold">Countries</h1>
+                <div>
+                <h1 className="text-center text-5xl font-bold underline mb-3">Countries</h1>
+                <p className="text-2xl text-center font-medium">Embark on an unforgettable journey through South Asia's treasure trove of enchanting destinations!</p>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {
                         country?.map(country => <CountryCard key={country._id} country={country}></CountryCard>)
@@ -107,9 +110,10 @@ const Home = () => {
 
             {/* Best Places to Visit */}
             <div>
+            <h1 className="text-center font-semibold text-5xl mt-10 underline">Blogs</h1>
+            <p className="text-2xl text-center font-medium mt-3 mb-5">Discover vibrant cities, ancient ruins, and breathtaking landscapes in this diverse and captivating region.</p>
                 <section className="dark:bg-gray-100 dark:text-gray-800">
                     <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-                        <h1 className="text-center font-semibold text-5xl">Best Places To Visit</h1>
                         <div rel="noopener noreferrer" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
                             <img src="https://i.ibb.co/WKrFBsq/Bali.jpg" alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
                             <div className="p-6 space-y-2 lg:col-span-5">
