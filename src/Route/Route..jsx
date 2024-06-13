@@ -12,6 +12,8 @@ import UpdateDetails from "../pages/UpdateDetails";
 import CountryToSpot from "../pages/CountryToSpot";
 import InsertCountries from "../pages/InsertCountries";
 import PrivateRoute from "./PrivateRoute";
+import PayNowForm from "../pages/PayNowForm";
+import MultipleSkill from "../pages/MultipleSkill";
 
 
 const router = createBrowserRouter([
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(` https://assignment-10-server-side-lake.vercel.app/spots/${params.id}`)
             },
             {
+                path: 'payNow',
+                element:<PayNowForm></PayNowForm>
+            },
+            {
                 path: '/countryToSpot/:id',
                 element: <CountryToSpot></CountryToSpot>,
                 loader: ({ params }) => fetch(` https://assignment-10-server-side-lake.vercel.app/country/${params.id}`)
@@ -64,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path :'/insertThem',
                 element: <InsertCountries></InsertCountries>
+            },
+            {
+                path: '/react-select',
+                element:<MultipleSkill></MultipleSkill>
             }
         ]
     }

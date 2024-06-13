@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../pages/Navbar";
 import Footer from "../pages/Footer";
 import { useEffect } from "react";
-import { IoEllipseSharp } from "react-icons/io5";
+
 
 const Root = () => {
 

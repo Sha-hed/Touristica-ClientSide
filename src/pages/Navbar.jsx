@@ -13,6 +13,8 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allSpots'>All Tourists Spot</NavLink></li>
+        <li><NavLink to='/payNow'>Pay kor Hala</NavLink></li>
+        <li><NavLink to='/react-select'>ReactSelect</NavLink></li>
         {
             user && <>
                 <li><NavLink to='/addSpots'>Add Tourists Spot</NavLink></li>
