@@ -1,8 +1,6 @@
 1. Website Name : Touristica
 2. Website Live URL : https://assignment-10-474ad.web.app/
 
-.
-
 Website Characteristics and Features:
 
 1. The website features a Navbar at the top, providing navigation to different pages.
