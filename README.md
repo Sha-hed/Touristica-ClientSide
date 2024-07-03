@@ -1,5 +1,5 @@
 <p>Website Name : Touristica</p>
-<p>Website Live URL: <a href="https://assignment-10-474ad.web.app/" target="_blank">https://assignment-11-5ffa8.web.app/</a></p>
+<p>Website Live URL: <a href="https://assignment-10-474ad.web.app/" target="_blank">https://assignment-10-474ad.web.app</a></p>
 
 Website Characteristics and Features:
 
